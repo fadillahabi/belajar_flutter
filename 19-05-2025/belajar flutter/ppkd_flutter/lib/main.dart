@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/meet_1/meet.dart';
+import 'package:ppkd_flutter/tugas_1_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -32,7 +33,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 37, 71, 18)),
       ),
-      home: MeetSatu()
+      home: Tugas1Flutter()
     );
   }
 }
