@@ -97,8 +97,8 @@ class MeetDua extends StatelessWidget {
               border: Border.all(), // Untuk menampilkan border diluar
               // shape: BoxShape.circle,
               gradient: LinearGradient(
-                colors: [Colors.blue, Colors.white],
-                begin: Alignment.centerLeft,
+                colors: [Colors.blue,Colors.cyan, Colors.white],
+                begin: Alignment.topLeft,
                 end: Alignment.bottomRight,
 
                 // transform: G

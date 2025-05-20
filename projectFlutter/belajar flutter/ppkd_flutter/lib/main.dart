@@ -1,7 +1,10 @@
 import 'package:flutter/material.dart';
-// import 'package:ppkd_flutter/meet_2/meet_2.dart';
+import 'package:ppkd_flutter/meet_2/meet_2.dart';
+import 'package:ppkd_flutter/meet_2/meet_2A.dart';
+// import 'package:ppkd_flutter/meet_2/meet_2A.dart';
+import 'package:ppkd_flutter/tugas_2_fluuter.dart';
 // import 'package:ppkd_flutter/meet_1/meet.dart';
-import 'package:ppkd_flutter/tugas_1_flutter.dart';
+// import 'package:ppkd_flutter/tugas_1_flutter.dart';
 
 void main() {
   runApp(const MyApp());
@@ -34,7 +37,7 @@ class MyApp extends StatelessWidget {
         // tested with just a hot reload.
         colorScheme: ColorScheme.fromSeed(seedColor: const Color.fromARGB(255, 37, 71, 18)),
       ),
-      home: Tugas1Flutter()
+      home: Tugas2Flutter()
     );
   }
 }
