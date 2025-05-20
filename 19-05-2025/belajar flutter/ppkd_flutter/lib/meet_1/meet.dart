@@ -65,36 +65,114 @@ class MeetSatu extends StatelessWidget {
       body: Column(
         mainAxisAlignment: MainAxisAlignment.start,
         children: [
-          Text("Pertemuan 1", style: TextStyle(fontSize: 24),),
-          Text("PPKD"),
-          Text("Kelas Mobile Programming"),
+          Text("Pertemuan 1", style: TextStyle(fontSize: 35, fontWeight: FontWeight.bold)),
+          Text("PPKD", style: TextStyle(fontSize: 24, fontWeight: FontWeight.w500),),
+          Text(
+            "Kelas Mobile Programming",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
+              fontStyle: FontStyle.italic,
+            ),
+          ),
+          Text(
+            "Nama Toko",
+            style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
+              color: Colors.blue[800],
+            ),
+          ),
+          Text.rich(
+            TextSpan(
+              text: "Toko Saya bernama",
+              style: TextStyle(
+                fontSize: 20,
+                fontWeight: FontWeight.w500,
+                color: Colors.black,
+              ),
+              children: [
+                TextSpan(
+                  text: " @alabiban_store",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.blue[800],
+                  ),
+                ),
+                TextSpan(
+                  text: " beralamat di Pintu 2 TMII",
+                  style: TextStyle(
+                    fontSize: 20,
+                    fontWeight: FontWeight.w500,
+                    color: Colors.black,
+                  ),
+                ),
+              ],
+            ),
+          ),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: [Text("Toko ELektronik")],
+            children: [Text("Ban Slick")],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: [Text("Televisi")],
+            children: [Text("Ban Off Road")],
           ),
           Text("Speaker"),
           Row(
             mainAxisAlignment: MainAxisAlignment.start,
-            children: [Text("Komputer")],
+            children: [Text("Ban Sport")],
           ),
           Row(
             mainAxisAlignment: MainAxisAlignment.end,
-            children: [Text("Kulkas")],
+            children: [Text("Ban Touring")],
           ),
-          Text("Oven"),
+          Text("Ban All Season"),
           Row(
             children: [
-              Text("Televisi"),
-              Text("Speaker"),
-              Text("Komputer"),
-              Text("Kulkas"),
-              Text("Oven"),
+              Text("IRC, Aspira, FDR, Swallow, Dunlop",style: TextStyle(
+              fontSize: 24,
+              fontWeight: FontWeight.w500,
+              overflow: TextOverflow.ellipsis,
+            ),
+          ),  
             ],
           ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [Text("Gambar 4 Gambar 5")],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.center,
+            children: [Text("Gambar 5")],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.end,
+            children: [Text("Gambar 6")],
+          ),
+          Row(
+            mainAxisAlignment: MainAxisAlignment.start,
+            children: [
+              Icon(Icons.email),
+              Icon(Icons.email, color: Colors.blue),
+              Icon(Icons.email, size: 50),
+              Text(
+                "Email:",
+                style: TextStyle(
+                  fontSize: 20,
+                  fontWeight: FontWeight.w500,
+                  color: Colors.black,
+                ),
+              ),
+            ],
+          ),
+          Row(mainAxisAlignment: MainAxisAlignment.spaceAround,children: [
+            Icon(
+      Icons.audiotrack,
+      color: Colors.green,
+      size: 30.0,
+          ),],)
         ],
       ), // body: ,
     );
