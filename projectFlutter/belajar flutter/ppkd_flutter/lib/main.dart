@@ -2,7 +2,7 @@ import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/meet_2/meet_2.dart';
 import 'package:ppkd_flutter/meet_2/meet_2A.dart';
 // import 'package:ppkd_flutter/meet_2/meet_2A.dart';
-import 'package:ppkd_flutter/tugas_2_fluuter.dart';
+import 'package:ppkd_flutter/tugas_2_flutter.dart';
 // import 'package:ppkd_flutter/meet_1/meet.dart';
 // import 'package:ppkd_flutter/tugas_1_flutter.dart';
 
