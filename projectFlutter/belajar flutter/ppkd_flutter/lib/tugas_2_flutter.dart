@@ -118,15 +118,9 @@ class Tugas2Flutter extends StatelessWidget {
                         margin: EdgeInsets.all(4),
                         padding: EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: Colors.lightBlueAccent,
+                          border: Border.all(),
+                          color: Colors.white,
                           borderRadius: BorderRadius.circular(12),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey,
-                              blurRadius: 8,
-                              offset: Offset(0, 4),
-                            ),
-                          ],
                         ),
                         child: Center(
                           child: Text(
@@ -144,22 +138,15 @@ class Tugas2Flutter extends StatelessWidget {
                         margin: EdgeInsets.all(4),
                         padding: EdgeInsets.all(16),
                         decoration: BoxDecoration(
-                          color: Colors.lightGreenAccent,
+                          color: Colors.blue,
                           borderRadius: BorderRadius.circular(12),
-                          boxShadow: [
-                            BoxShadow(
-                              color: Colors.grey,
-                              blurRadius: 8,
-                              offset: Offset(0, 4),
-                            ),
-                          ],
                         ),
                         child: Center(
                           child: Text(
                             "Followers",
                             style: TextStyle(
                               fontSize: 18,
-                              color: Colors.black87,
+                              color: Colors.white,
                             ),
                           ),
                         ),
