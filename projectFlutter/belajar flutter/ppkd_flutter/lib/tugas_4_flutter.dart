@@ -288,7 +288,7 @@ class Tugas4Flutter extends StatelessWidget {
               child: Column(
                 crossAxisAlignment: CrossAxisAlignment.start,
                 children: [
-                  const SizedBox(height: 16),
+                  const SizedBox(height: 8),
                   const Text(
                     "Pilih Paket Diamond",
                     style: TextStyle(
