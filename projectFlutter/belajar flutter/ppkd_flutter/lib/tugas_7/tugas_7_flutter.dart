@@ -33,14 +33,14 @@ class _TugasTujuhFlutterState extends State<TugasTujuhFlutter> {
         iconTheme: IconThemeData(color: Colors.white),
         title: Text("Tugas 7 Flutter", style: TextStyle(color: Colors.white)),
         centerTitle: true,
-        toolbarHeight: 64,
+        toolbarHeight: 84,
       ),
       drawer: Drawer(
         child: ListView(
           padding: EdgeInsets.zero,
           children: <Widget>[
             SizedBox(
-              height: 240,
+              height: 230,
               child: DrawerHeader(
                 decoration: BoxDecoration(color: AppColor.blue12),
                 child: Column(

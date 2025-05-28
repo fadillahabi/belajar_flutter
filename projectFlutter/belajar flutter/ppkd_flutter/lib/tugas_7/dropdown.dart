@@ -15,12 +15,15 @@ class _TugasTujuhDropDownState extends State<TugasTujuhDropDown> {
   Widget build(BuildContext context) {
     return Scaffold(
       body: Padding(
-        padding: const EdgeInsets.all(40.0),
+        padding: const EdgeInsets.all(20.0),
         child: Column(
           children: [
             DropdownButton(
               value: isSelected,
-              hint: Text("Pilih Kategori Produk"),
+              hint: Text(
+                "Pilih Kategori Produk",
+                style: TextStyle(fontSize: 16, fontWeight: FontWeight.bold),
+              ),
               items:
                   _vehicle.map((String value) {
                     return DropdownMenuItem<String>(
@@ -41,7 +44,7 @@ class _TugasTujuhDropDownState extends State<TugasTujuhDropDown> {
               isSelected != null
                   ? "Anda Memilih Kategori $isSelected"
                   : "Belum memilih kategori",
-              style: const TextStyle(fontSize: 16),
+              style: const TextStyle(fontSize: 14),
             ),
           ],
         ),

@@ -16,6 +16,7 @@ class _TugasDelapanFlutterState extends State<TugasDelapanFlutter> {
   static const List<Widget> _screen = [
     // Center(child: Text("Home Screen")),
     TugasTujuhFlutter(),
+    About(),
   ];
 
   @override
@@ -42,6 +43,68 @@ class _TugasDelapanFlutterState extends State<TugasDelapanFlutter> {
           BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.info), label: "About"),
         ],
+      ),
+    );
+  }
+}
+
+class About extends StatefulWidget {
+  const About({super.key});
+
+  @override
+  State<About> createState() => _AboutState();
+}
+
+class _AboutState extends State<About> {
+  @override
+  Widget build(BuildContext context) {
+    return Scaffold(
+      backgroundColor: AppColor.blue12,
+      body: Padding(
+        padding: const EdgeInsets.all(20.0),
+        child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
+          mainAxisAlignment: MainAxisAlignment.center,
+          children: [
+            Text(
+              'Flutter BottomNavigation Demo',
+              style: TextStyle(
+                color: AppColor.army3,
+                fontSize: 24,
+                fontWeight: FontWeight.bold,
+              ),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Aplikasi ini dibuat menggunakan Flutter dengan struktur navigasi BottomNavigationBar. '
+              'Terdiri dari dua tab utama: Beranda dan Profil, untuk navigasi yang cepat dan sederhana.',
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+            SizedBox(height: 30),
+            Text(
+              'Pembuat:',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Text(
+              'Fadillah Abi Prayogo',
+              style: TextStyle(color: Colors.white, fontSize: 16),
+            ),
+            SizedBox(height: 10),
+            Text(
+              'Versi:',
+              style: TextStyle(
+                color: Colors.white,
+                fontSize: 18,
+                fontWeight: FontWeight.w600,
+              ),
+            ),
+            Text('1.0.0', style: TextStyle(color: Colors.white, fontSize: 16)),
+          ],
+        ),
       ),
     );
   }

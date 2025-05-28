@@ -22,18 +22,26 @@ class _TugasTujuhSwitchState extends State<TugasTujuhSwitch> {
     return Scaffold(
       backgroundColor: isSwitchOn ? AppColor.blue12 : Colors.white,
       body: Padding(
-        padding: const EdgeInsets.all(40),
+        padding: const EdgeInsets.all(20),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.start,
           children: [
             isSwitchOn
                 ? Text(
                   "Aktifkan Mode Gelap",
-                  style: TextStyle(color: Colors.white),
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
                 )
                 : Text(
                   "Aktifkan Mode Terang",
-                  style: TextStyle(color: AppColor.blue12),
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: AppColor.blue12,
+                  ),
                 ),
             Switch(
               value: isSwitchOn,

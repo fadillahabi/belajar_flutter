@@ -28,21 +28,28 @@ class _TugasTujuhTimepickerState extends State<TugasTujuhTimepicker> {
   @override
   Widget build(BuildContext context) {
     return Scaffold(
-      body: Row(
-        children: [
-          // Text("Pilih Waktu Pengingat"),
-          IconButton(onPressed: _pickTime, icon: Icon(Icons.watch_later)),
-          Row(
-            children: [
-              Text("Pengingat diatur pukul: "),
-              Text(
-                pilihJam != null
-                    ? pilihJam!.format(context)
-                    : "Belum memilih waktu",
-              ),
-            ],
-          ),
-        ],
+      body: Padding(
+        padding: const EdgeInsets.all(20),
+        child: Row(
+          children: [
+            // Text("Pilih Waktu Pengingat"),
+            IconButton(onPressed: _pickTime, icon: Icon(Icons.watch_later)),
+            Row(
+              children: [
+                Text(
+                  "Pengingat diatur pukul: ",
+                  style: TextStyle(fontSize: 16),
+                ),
+                Text(
+                  pilihJam != null
+                      ? pilihJam!.format(context)
+                      : "Belum memilih waktu",
+                  style: TextStyle(fontSize: 16),
+                ),
+              ],
+            ),
+          ],
+        ),
       ),
     );
   }
