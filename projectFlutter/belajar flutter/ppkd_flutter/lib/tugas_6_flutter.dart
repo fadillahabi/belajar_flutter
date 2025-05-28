@@ -1,5 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+import 'package:ppkd_flutter/tugas_4_flutter.dart';
 
 class TugasEnamFlutter extends StatefulWidget {
   const TugasEnamFlutter({super.key});
@@ -21,7 +22,9 @@ class _TugasEnamFlutterState extends State<TugasEnamFlutter> {
           padding: const EdgeInsets.only(left: 20),
           child: IconButton(
             icon: const Icon(Icons.arrow_back_ios),
-            onPressed: () {},
+            onPressed: () {
+              Navigator.pop(context);
+            },
             color: Colors.white,
           ),
         ),
@@ -65,7 +68,7 @@ class _TugasEnamFlutterState extends State<TugasEnamFlutter> {
               TextField(
                 decoration: InputDecoration(
                   prefixIcon: const Icon(Icons.email, color: Color(0xffC4C4C4)),
-                  hintText: "Fadillah Abi Prayogo",
+                  hintText: "Email",
                   hintStyle: const TextStyle(fontSize: 14, color: Colors.white),
                   filled: true,
                   fillColor: const Color(0xff00224F),
@@ -137,7 +140,10 @@ class _TugasEnamFlutterState extends State<TugasEnamFlutter> {
                     ),
                   ),
                   onPressed: () {
-                    print('Tombol Login ditekan!');
+                    Navigator.pushReplacement(
+                      context,
+                      MaterialPageRoute(builder: (context) => Tugas4Flutter()),
+                    );
                   },
                   child: const Text(
                     'Login',

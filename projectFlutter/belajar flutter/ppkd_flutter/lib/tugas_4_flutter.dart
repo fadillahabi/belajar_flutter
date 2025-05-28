@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_flutter/tugas_2_flutter.dart';
 
 class Tugas4Flutter extends StatelessWidget {
   const Tugas4Flutter({super.key});
@@ -48,14 +49,13 @@ class Tugas4Flutter extends StatelessWidget {
         backgroundColor: const Color(0xff222831),
         centerTitle: true,
         toolbarHeight: 60,
-        leading: Padding(
-          padding: const EdgeInsets.only(left: 12),
-          child: Image.asset(
-            'assets/images/logo.png',
-            width: 60,
-            height: 60,
-            // fit: BoxFit.contain,
-          ),
+        leading: IconButton(
+          padding: EdgeInsets.only(left: 12),
+          icon: Image.asset("assets/images/logo.png"),
+          iconSize: 300,
+          onPressed: () {
+            Navigator.pop(context);
+          },
         ),
         actions: [
           IconButton(
@@ -118,9 +118,19 @@ class Tugas4Flutter extends StatelessWidget {
                         borderRadius: BorderRadius.circular(12),
                       ),
                       child: Center(
-                        child: Text(
-                          "Keterangan",
-                          style: TextStyle(fontSize: 16, color: Colors.white),
+                        child: TextButton(
+                          onPressed: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (context) => Tugas2Flutter(),
+                              ),
+                            );
+                          },
+                          child: Text(
+                            "Keterangan",
+                            style: TextStyle(color: Colors.white, fontSize: 16),
+                          ),
                         ),
                       ),
                     ),

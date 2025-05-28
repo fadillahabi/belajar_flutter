@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_flutter/meet_12/meet_12a.dart';
 
 class Tugas2Flutter extends StatelessWidget {
   const Tugas2Flutter({super.key});
@@ -10,10 +11,23 @@ class Tugas2Flutter extends StatelessWidget {
         backgroundColor: Colors.lightGreen,
         centerTitle: true,
         title: Text('Profil Lengkap'),
-        leading: IconButton(onPressed: () {}, icon: Icon(Icons.home)),
+        leading: IconButton(
+          onPressed: () {
+            Navigator.pop(context);
+          },
+          icon: Icon(Icons.home),
+        ),
         actions: [
           IconButton(onPressed: () {}, icon: Icon(Icons.call)),
-          IconButton(onPressed: () {}, icon: Icon(Icons.more_vert)),
+          IconButton(
+            onPressed: () {
+              Navigator.push(
+                context,
+                MaterialPageRoute(builder: (context) => Meet12AInputWidget()),
+              );
+            },
+            icon: Icon(Icons.settings),
+          ),
         ],
       ),
       backgroundColor: Colors.grey[300],
@@ -104,7 +118,7 @@ class Tugas2Flutter extends StatelessWidget {
                         Spacer(),
                         Text(
                           "+62 877-7548-7205",
-                          style: TextStyle(fontSize: 16,),
+                          style: TextStyle(fontSize: 16),
                         ),
                       ],
                     ),
@@ -144,10 +158,7 @@ class Tugas2Flutter extends StatelessWidget {
                         child: Center(
                           child: Text(
                             "Followers",
-                            style: TextStyle(
-                              fontSize: 18,
-                              color: Colors.white,
-                            ),
+                            style: TextStyle(fontSize: 18, color: Colors.white),
                           ),
                         ),
                       ),
