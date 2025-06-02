@@ -40,7 +40,7 @@ class _TugasDelapanFlutterState extends State<TugasDelapanFlutter> {
           fontSize: 10,
         ).copyWith(color: AppColor.army1),
         items: [
-          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Home"),
+          BottomNavigationBarItem(icon: Icon(Icons.home), label: "Beranda"),
           BottomNavigationBarItem(icon: Icon(Icons.info), label: "About"),
         ],
       ),

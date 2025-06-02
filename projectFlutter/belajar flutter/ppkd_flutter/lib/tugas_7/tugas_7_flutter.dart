@@ -5,6 +5,7 @@ import 'package:ppkd_flutter/tugas_7/datepicker.dart';
 import 'package:ppkd_flutter/tugas_7/dropdown.dart';
 import 'package:ppkd_flutter/tugas_7/switch.dart';
 import 'package:ppkd_flutter/tugas_7/timepicker.dart';
+import 'package:ppkd_flutter/tugas_9_flutter.dart';
 
 class TugasTujuhFlutter extends StatefulWidget {
   const TugasTujuhFlutter({super.key});
@@ -31,7 +32,7 @@ class _TugasTujuhFlutterState extends State<TugasTujuhFlutter> {
       appBar: AppBar(
         backgroundColor: AppColor.blue12,
         iconTheme: IconThemeData(color: Colors.white),
-        title: Text("Tugas 7 Flutter", style: TextStyle(color: Colors.white)),
+        title: Text("Tugas 8 Flutter", style: TextStyle(color: Colors.white)),
         centerTitle: true,
         toolbarHeight: 84,
       ),
@@ -105,6 +106,20 @@ class _TugasTujuhFlutterState extends State<TugasTujuhFlutter> {
               selected: _selectedIndex == 4,
               selectedTileColor: AppColor.blue12.withOpacity(0.2),
               onTap: () => _setScreen(TugasTujuhTimepicker(), 4),
+            ),
+            ListTile(
+              leading: Icon(Icons.list),
+              title: Text("List Map"),
+              // selected: _selectedIndex == 4,
+              selectedTileColor: AppColor.blue12.withOpacity(0.2),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(
+                    builder: (context) => TugasSembilanFlutter(),
+                  ),
+                );
+              },
             ),
           ],
         ),
