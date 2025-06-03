@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter/services.dart';
 import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
 import 'package:ppkd_flutter/tugas_10_flutter.dart';
 import 'package:ppkd_flutter/tugas_7_package/checkbox.dart';
@@ -134,6 +135,15 @@ class _TugasTujuhFlutterState extends State<TugasTujuhFlutter> {
                     builder: (context) => TugasSepuluhFlutter(),
                   ),
                 );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text("Exit"),
+              // selected: _selectedIndex == 4,
+              selectedTileColor: AppColor.blue12.withOpacity(0.2),
+              onTap: () {
+                SystemNavigator.pop();
               },
             ),
           ],

@@ -1,4 +1,6 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_flutter/open.dart';
+import 'package:ppkd_flutter/tugas_6_flutter.dart';
 import 'package:ppkd_flutter/tugas_7_flutter.dart';
 // import 'package:ppkd_flutter/meet_1/meet.dart';
 // import 'package:ppkd_flutter/tugas_1_flutter.dart';
@@ -14,15 +16,15 @@ class MyApp extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return MaterialApp(
-      // initialRoute: "/",
-      // routes: {
-      //   "/": (context) => TugasTujuhFlutter(),
-      //   "checkbox": (context) => TugasTujuhSwitch(),
-      //   "switch": (context) => TugasTujuhSwitch(),
-      //   "dropdown": (context) => TugasTujuhDropDown(),
-      //   "datepciker": (context) => TugasTujuhDatepicker(),
-      //   "timepicker": (context) => TugasTujuhTimepicker(),
-      // },
+      initialRoute: "/",
+      routes: {
+        "/": (context) => Open(),
+        "/login": (context) => TugasEnamFlutter(),
+        "/tugas_7_flutter": (context) => TugasTujuhFlutter(),
+        // "dropdown": (context) => TugasTujuhDropDown(),
+        // "datepciker": (context) => TugasTujuhDatepicker(),
+        // "timepicker": (context) => TugasTujuhTimepicker(),
+      },
       debugShowCheckedModeBanner: false,
       title: 'Flutter Demo',
       theme: ThemeData(
@@ -45,7 +47,7 @@ class MyApp extends StatelessWidget {
           seedColor: const Color.fromARGB(255, 37, 71, 18),
         ),
       ),
-      home: TugasTujuhFlutter(),
+      // home: Open(),
     );
   }
 }
