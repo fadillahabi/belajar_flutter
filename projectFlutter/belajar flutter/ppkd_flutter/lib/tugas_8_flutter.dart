@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
 import 'package:ppkd_flutter/meet_11/constant/app_style.dart';
-import 'package:ppkd_flutter/tugas_7/tugas_7_flutter.dart';
+import 'package:ppkd_flutter/tugas_7_flutter.dart';
 
 class TugasDelapanFlutter extends StatefulWidget {
   const TugasDelapanFlutter({super.key});

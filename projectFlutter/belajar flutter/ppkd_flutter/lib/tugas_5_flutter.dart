@@ -1,13 +1,13 @@
 import 'package:flutter/material.dart';
 
-class Tugas5Flutter extends StatefulWidget {
-  const Tugas5Flutter({super.key});
+class TugasLimaFlutter extends StatefulWidget {
+  const TugasLimaFlutter({super.key});
 
   @override
-  State<Tugas5Flutter> createState() => _Tugas5FlutterState();
+  State<TugasLimaFlutter> createState() => _TugasLimaFlutterState();
 }
 
-class _Tugas5FlutterState extends State<Tugas5Flutter> {
+class _TugasLimaFlutterState extends State<TugasLimaFlutter> {
   bool munculText = false;
   bool munculIcon = false;
   bool munculMore = false;

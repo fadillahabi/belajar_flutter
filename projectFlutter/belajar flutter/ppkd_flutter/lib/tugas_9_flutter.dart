@@ -16,6 +16,9 @@ class _TugasSembilanFlutterState extends State<TugasSembilanFlutter> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
         backgroundColor: AppColor.blue12,
         title: Text(
           "Aplikasi Kategori Toko",

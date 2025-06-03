@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
-class Tugas1Flutter extends StatelessWidget {
-  const Tugas1Flutter({super.key});
+class TugasSatuFlutter extends StatelessWidget {
+  const TugasSatuFlutter({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -32,7 +32,7 @@ class Tugas1Flutter extends StatelessWidget {
             child: Row(
               children: [
                 CircleAvatar(
-                  radius: 35, 
+                  radius: 35,
                   backgroundColor: Colors.grey[300],
                   child: Icon(Icons.person, size: 50, color: Colors.grey[700]),
                 ),

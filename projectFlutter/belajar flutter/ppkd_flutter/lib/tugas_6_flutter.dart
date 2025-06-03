@@ -142,7 +142,9 @@ class _TugasEnamFlutterState extends State<TugasEnamFlutter> {
                   onPressed: () {
                     Navigator.pushReplacement(
                       context,
-                      MaterialPageRoute(builder: (context) => Tugas4Flutter()),
+                      MaterialPageRoute(
+                        builder: (context) => TugasEmpatFlutter(),
+                      ),
                     );
                   },
                   child: const Text(

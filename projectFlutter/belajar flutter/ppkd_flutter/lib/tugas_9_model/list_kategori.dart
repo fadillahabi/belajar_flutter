@@ -36,6 +36,9 @@ class _ListKategoriState extends State<ListKategori> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        iconTheme: IconThemeData(
+          color: Colors.white, //change your color here
+        ),
         backgroundColor: AppColor.blue12,
         title: Text("List Kategori", style: TextStyle(color: Colors.white)),
         centerTitle: true,

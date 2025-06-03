@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_flutter/tugas_7/tugas_7_flutter.dart';
+import 'package:ppkd_flutter/tugas_7_flutter.dart';
 // import 'package:ppkd_flutter/meet_1/meet.dart';
 // import 'package:ppkd_flutter/tugas_1_flutter.dart';
 

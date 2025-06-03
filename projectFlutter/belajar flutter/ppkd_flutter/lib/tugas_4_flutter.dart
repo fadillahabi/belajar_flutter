@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/tugas_2_flutter.dart';
 
-class Tugas4Flutter extends StatelessWidget {
-  const Tugas4Flutter({super.key});
+class TugasEmpatFlutter extends StatelessWidget {
+  const TugasEmpatFlutter({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -123,7 +123,7 @@ class Tugas4Flutter extends StatelessWidget {
                             Navigator.push(
                               context,
                               MaterialPageRoute(
-                                builder: (context) => Tugas2Flutter(),
+                                builder: (context) => TugasDuaFlutter(),
                               ),
                             );
                           },

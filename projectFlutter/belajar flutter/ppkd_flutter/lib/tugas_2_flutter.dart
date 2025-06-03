@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/meet_12/meet_12a.dart';
 
-class Tugas2Flutter extends StatelessWidget {
-  const Tugas2Flutter({super.key});
+class TugasDuaFlutter extends StatelessWidget {
+  const TugasDuaFlutter({super.key});
 
   @override
   Widget build(BuildContext context) {
