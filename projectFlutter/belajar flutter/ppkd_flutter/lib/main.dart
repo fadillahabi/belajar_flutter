@@ -1,7 +1,9 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_flutter/meet_16/login_screen_app.dart';
+import 'package:ppkd_flutter/meet_16/register_screen.dart';
 import 'package:ppkd_flutter/open.dart';
-import 'package:ppkd_flutter/tugas_6_flutter.dart';
-import 'package:ppkd_flutter/tugas_7_flutter.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_6_flutter.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_7_flutter.dart';
 // import 'package:ppkd_flutter/meet_1/meet.dart';
 // import 'package:ppkd_flutter/tugas_1_flutter.dart';
 
@@ -21,12 +23,14 @@ class MyApp extends StatelessWidget {
         "/": (context) => Open(),
         "/login": (context) => TugasEnamFlutter(),
         "/tugas_7_flutter": (context) => TugasTujuhFlutter(),
+        LoginScreenApp.id: (context) => LoginScreenApp(),
+        RegisterScreen.id: (context) => RegisterScreen(),
         // "dropdown": (context) => TugasTujuhDropDown(),
         // "datepciker": (context) => TugasTujuhDatepicker(),
         // "timepicker": (context) => TugasTujuhTimepicker(),
       },
       debugShowCheckedModeBanner: false,
-      title: 'Flutter Demo',
+      title: 'PPKD',
       theme: ThemeData(
         // This is the theme of your application.
         //

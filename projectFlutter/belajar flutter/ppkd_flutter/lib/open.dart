@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/helper/preference.dart';
+import 'package:ppkd_flutter/meet_16/login_screen_app.dart';
 
 class Open extends StatefulWidget {
   const Open({super.key});
@@ -10,22 +11,22 @@ class Open extends StatefulWidget {
 
 class _OpenState extends State<Open> {
   void changePage() {
-    Future.delayed(Duration(seconds: 4), () async {
+    Future.delayed(Duration(seconds: 3), () async {
       bool isLogin = await PreferenceHandler.getLogin();
       print("isLogin: $isLogin");
-      if (isLogin) {
-        return Navigator.pushNamedAndRemoveUntil(
-          context,
-          "/login",
-          (route) => false,
-        );
-      } else {
-        Navigator.pushNamedAndRemoveUntil(
-          context,
-          "/tugas_7_flutter",
-          (route) => false,
-        );
-      }
+      // if (isLogin) {
+      //   return Navigator.pushNamedAndRemoveUntil(
+      //     context,
+      //     "/login",
+      //     (route) => false,
+      //   );
+      // } else {
+      Navigator.pushNamedAndRemoveUntil(
+        context,
+        LoginScreenApp.id,
+        (route) => false,
+      );
+      // }
     });
   }
 

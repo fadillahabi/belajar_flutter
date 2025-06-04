@@ -1,13 +1,15 @@
 import 'package:flutter/material.dart';
-import 'package:flutter/services.dart';
+import 'package:ppkd_flutter/helper/preference.dart';
 import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
-import 'package:ppkd_flutter/tugas_10_flutter.dart';
 import 'package:ppkd_flutter/tugas_7_package/checkbox.dart';
 import 'package:ppkd_flutter/tugas_7_package/datepicker.dart';
 import 'package:ppkd_flutter/tugas_7_package/dropdown.dart';
 import 'package:ppkd_flutter/tugas_7_package/switch.dart';
 import 'package:ppkd_flutter/tugas_7_package/timepicker.dart';
-import 'package:ppkd_flutter/tugas_9_flutter.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_10_flutter.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_4_flutter.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_6_flutter.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_9_flutter.dart';
 
 class TugasTujuhFlutter extends StatefulWidget {
   const TugasTujuhFlutter({super.key});
@@ -17,7 +19,7 @@ class TugasTujuhFlutter extends StatefulWidget {
 }
 
 class _TugasTujuhFlutterState extends State<TugasTujuhFlutter> {
-  Widget _currentScreen = TugasTujuhCheckbox();
+  Widget _currentScreen = TugasEmpatFlutter();
   int _selectedIndex = 0;
 
   void _setScreen(Widget screen, int index) {
@@ -34,7 +36,7 @@ class _TugasTujuhFlutterState extends State<TugasTujuhFlutter> {
       appBar: AppBar(
         backgroundColor: AppColor.blue12,
         iconTheme: IconThemeData(color: Colors.white),
-        title: Text("Tugas 8 Flutter", style: TextStyle(color: Colors.white)),
+        title: Text("Menu Utama", style: TextStyle(color: Colors.white)),
         centerTitle: true,
         toolbarHeight: 84,
       ),
@@ -75,39 +77,46 @@ class _TugasTujuhFlutterState extends State<TugasTujuhFlutter> {
               ),
             ),
             ListTile(
-              leading: Icon(Icons.check_box),
-              title: Text("Syarat & Ketentuan"),
+              leading: Icon(Icons.home),
+              title: Text("Beranda"),
               selected: _selectedIndex == 0,
               selectedTileColor: AppColor.blue12.withOpacity(0.2),
-              onTap: () => _setScreen(TugasTujuhCheckbox(), 0),
+              onTap: () => _setScreen(TugasEmpatFlutter(), 0),
+            ),
+            ListTile(
+              leading: Icon(Icons.check_box),
+              title: Text("Syarat & Ketentuan"),
+              selected: _selectedIndex == 1,
+              selectedTileColor: AppColor.blue12.withOpacity(0.2),
+              onTap: () => _setScreen(TugasTujuhCheckbox(), 1),
             ),
             ListTile(
               leading: Icon(Icons.dark_mode),
               title: Text("Mode Gelap"),
-              selected: _selectedIndex == 1,
+              selected: _selectedIndex == 2,
               selectedTileColor: AppColor.blue12.withOpacity(0.2),
-              onTap: () => _setScreen(TugasTujuhSwitch(), 1),
+              onTap: () => _setScreen(TugasTujuhSwitch(), 2),
             ),
             ListTile(
               leading: Icon(Icons.list),
               title: Text("Pilih Kategori Produk"),
-              selected: _selectedIndex == 2,
+              selected: _selectedIndex == 3,
               selectedTileColor: AppColor.blue12.withOpacity(0.2),
-              onTap: () => _setScreen(TugasTujuhDropDown(), 2),
+              onTap: () => _setScreen(TugasTujuhDropDown(), 3),
             ),
             ListTile(
               leading: Icon(Icons.date_range),
               title: Text("Pilih Tanggal Lahir"),
-              selected: _selectedIndex == 3,
+              selected: _selectedIndex == 4,
               selectedTileColor: AppColor.blue12.withOpacity(0.2),
-              onTap: () => _setScreen(TugasTujuhDatepicker(), 3),
+              onTap: () => _setScreen(TugasTujuhDatepicker(), 4),
             ),
             ListTile(
               leading: Icon(Icons.access_time),
               title: Text("Atur Pengingat"),
-              selected: _selectedIndex == 4,
+              selected: _selectedIndex == 5,
               selectedTileColor: AppColor.blue12.withOpacity(0.2),
-              onTap: () => _setScreen(TugasTujuhTimepicker(), 4),
+              onTap: () => _setScreen(TugasTujuhTimepicker(), 5),
             ),
             ListTile(
               leading: Icon(Icons.list),
@@ -143,7 +152,12 @@ class _TugasTujuhFlutterState extends State<TugasTujuhFlutter> {
               // selected: _selectedIndex == 4,
               selectedTileColor: AppColor.blue12.withOpacity(0.2),
               onTap: () {
-                SystemNavigator.pop();
+                PreferenceHandler.deleteLogin();
+                Navigator.pushAndRemoveUntil(
+                  context,
+                  MaterialPageRoute(builder: (context) => TugasEnamFlutter()),
+                  (route) => false,
+                );
               },
             ),
           ],

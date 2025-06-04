@@ -1,6 +1,6 @@
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
-import 'package:ppkd_flutter/tugas_4_flutter.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_4_flutter.dart';
 
 class TugasEnamFlutter extends StatefulWidget {
   const TugasEnamFlutter({super.key});
