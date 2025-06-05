@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
 import 'package:ppkd_flutter/meet_11/constant/app_images.dart';
-import 'package:ppkd_flutter/tugas_9_model/model/product_model.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_9_model/model/product_model.dart';
 
 class ModelMakananRingan extends StatefulWidget {
   const ModelMakananRingan({super.key});

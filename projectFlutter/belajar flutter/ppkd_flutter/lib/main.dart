@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/meet_16/login_screen_app.dart';
 import 'package:ppkd_flutter/meet_16/register_screen.dart';
 import 'package:ppkd_flutter/open.dart';
+import 'package:ppkd_flutter/study_case/screen_siswa.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_11_fluttter.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_6_flutter.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_7_flutter.dart';
 // import 'package:ppkd_flutter/meet_1/meet.dart';
@@ -25,7 +27,10 @@ class MyApp extends StatelessWidget {
         "/tugas_7_flutter": (context) => TugasTujuhFlutter(),
         LoginScreenApp.id: (context) => LoginScreenApp(),
         RegisterScreen.id: (context) => RegisterScreen(),
-        // "dropdown": (context) => TugasTujuhDropDown(),
+        SiswaApp.id: (context) => SiswaApp(),
+        TugasSebelasFlutter.id:
+            (context) =>
+                TugasSebelasFlutter(), // "dropdown": (context) => TugasTujuhDropDown(),
         // "datepciker": (context) => TugasTujuhDatepicker(),
         // "timepicker": (context) => TugasTujuhTimepicker(),
       },

@@ -1,8 +1,8 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
-import 'package:ppkd_flutter/tugas_9_model/list_kategori.dart';
-import 'package:ppkd_flutter/tugas_9_model/map_kategori.dart';
-import 'package:ppkd_flutter/tugas_9_model/model_makanan_ringan.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_9_model/list_kategori.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_9_model/map_kategori.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_9_model/model_makanan_ringan.dart';
 
 class TugasSembilanFlutter extends StatefulWidget {
   const TugasSembilanFlutter({super.key});

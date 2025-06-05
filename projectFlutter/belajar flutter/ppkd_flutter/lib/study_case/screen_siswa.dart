@@ -1,9 +1,11 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
 import 'package:ppkd_flutter/study_case/database/db_helper.dart';
 import 'package:ppkd_flutter/study_case/model/siswa_model.dart';
 
 class SiswaApp extends StatefulWidget {
   const SiswaApp({super.key});
+  static const String id = "/screen_siswa";
 
   @override
   State<SiswaApp> createState() => _SiswaAppState();
@@ -69,6 +71,27 @@ class _SiswaAppState extends State<SiswaApp> {
                     subtitle: Text("Umur: ${siswa.umur}"),
                   );
                 },
+              ),
+            ),
+            SizedBox(
+              width: double.infinity,
+              height: 56,
+              child: ElevatedButton(
+                onPressed: inputData,
+                style: ElevatedButton.styleFrom(
+                  backgroundColor: AppColor.blueButton,
+                  shape: RoundedRectangleBorder(
+                    borderRadius: BorderRadius.circular(6),
+                  ),
+                ),
+                child: Text(
+                  "Submit",
+                  style: TextStyle(
+                    fontSize: 16,
+                    fontWeight: FontWeight.bold,
+                    color: Colors.white,
+                  ),
+                ),
               ),
             ),
           ],
