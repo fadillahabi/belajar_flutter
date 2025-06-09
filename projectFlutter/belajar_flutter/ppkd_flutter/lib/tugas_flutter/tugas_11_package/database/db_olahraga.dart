@@ -6,9 +6,9 @@ class DbOlahraga {
   static Future<Database> dbOlahraga() async {
     final dbPath = await getDatabasesPath();
     return openDatabase(
-      join(dbPath, 'olahraga.db'),
+      join(dbPath, 'peserta.db'),
       onCreate: (dbOR, version) {
-        return dbOR.execute('''CREATE TABLE olahraga(
+        return dbOR.execute('''CREATE TABLE peserta(
           id INTEGER PRIMARY KEY AUTOINCREMENT, 
           nama TEXT, 
           umur INTEGER, 
@@ -25,7 +25,7 @@ class DbOlahraga {
   Future<void> insertOlahraga(OlahragaModel peserta) async {
     final dbOR = await DbOlahraga.dbOlahraga();
     await dbOR.insert(
-      'olahraga',
+      'peserta',
       peserta.toMap(),
       conflictAlgorithm: ConflictAlgorithm.replace,
     );
@@ -33,8 +33,23 @@ class DbOlahraga {
 
   Future<List<OlahragaModel>> getAllPeserta() async {
     final dbOR = await DbOlahraga.dbOlahraga();
-    final List<Map<String, dynamic>> maps = await dbOR.query('olahraga');
+    final List<Map<String, dynamic>> maps = await dbOR.query('peserta');
 
     return List.generate(maps.length, (i) => OlahragaModel.fromMap(maps[i]));
+  }
+
+  static Future<void> updateOlahraga(OlahragaModel peserta) async {
+    final db = await DbOlahraga.dbOlahraga();
+    await db.update(
+      'peserta',
+      peserta.toMap(),
+      where: 'id = ?',
+      whereArgs: [peserta.id],
+    );
+  }
+
+  static Future<void> deleteOlahraga(int id) async {
+    final db = await DbOlahraga.dbOlahraga();
+    await db.delete('peserta', where: 'id = ?', whereArgs: [id]);
   }
 }

@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
-import 'package:ppkd_flutter/tugas_10_package/thanks_page.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_10_package/thanks_page.dart';
 
 class TugasSepuluhFlutter extends StatefulWidget {
   const TugasSepuluhFlutter({super.key});

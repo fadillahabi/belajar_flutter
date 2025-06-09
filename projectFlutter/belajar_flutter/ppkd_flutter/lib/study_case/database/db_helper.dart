@@ -32,4 +32,19 @@ class DBHelper {
 
     return List.generate(maps.length, (i) => SiswaModel.fromMap(maps[i]));
   }
+
+  static Future<void> updateSiswa(SiswaModel siswa) async {
+    final db = await DBHelper.dbSiswa();
+    await db.update(
+      'siswa',
+      siswa.toMap(),
+      where: 'id = ?',
+      whereArgs: [siswa.id],
+    );
+  }
+
+  static Future<void> deleteSiswa(int id) async {
+    final db = await DBHelper.dbSiswa();
+    await db.delete('siswa', where: 'id = ?', whereArgs: [id]);
+  }
 }

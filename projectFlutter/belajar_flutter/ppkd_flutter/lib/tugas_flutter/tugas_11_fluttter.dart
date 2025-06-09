@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_11_package/database/db_olahraga.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_11_package/edit_screen_olahraga.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_11_package/model/olahraga_model.dart';
 
 class TugasSebelasFlutter extends StatefulWidget {
@@ -374,6 +375,36 @@ class _TugasSebelasFlutterState extends State<TugasSebelasFlutter> {
                                   "Frekuensi Latihan: ${peserta.frekuensiLatihan}",
                                 ),
                                 Text("Prestasi: ${peserta.prestasi}"),
+                                SizedBox(height: 8),
+                                Row(
+                                  mainAxisAlignment: MainAxisAlignment.end,
+                                  children: [
+                                    IconButton(
+                                      icon: Icon(Icons.edit, size: 20),
+                                      onPressed: () async {
+                                        final result = await Navigator.push(
+                                          context,
+                                          MaterialPageRoute(
+                                            builder:
+                                                (_) => EditOlahragaScreen(
+                                                  peserta: peserta,
+                                                ),
+                                          ),
+                                        );
+                                        if (result == true) ambilData();
+                                      },
+                                    ),
+                                    IconButton(
+                                      icon: Icon(Icons.delete, size: 20),
+                                      onPressed: () async {
+                                        await DbOlahraga.deleteOlahraga(
+                                          peserta.id!,
+                                        );
+                                        await ambilData();
+                                      },
+                                    ),
+                                  ],
+                                ),
                               ],
                             ),
                           ),

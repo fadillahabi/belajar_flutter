@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
 import 'package:ppkd_flutter/study_case/database/db_helper.dart';
+import 'package:ppkd_flutter/study_case/edit_screen_siswa.dart';
 import 'package:ppkd_flutter/study_case/model/siswa_model.dart';
 
 class SiswaApp extends StatefulWidget {
@@ -69,6 +70,37 @@ class _SiswaAppState extends State<SiswaApp> {
                     leading: CircleAvatar(child: Text("${siswa.id}")),
                     title: Text(siswa.name),
                     subtitle: Text("Umur: ${siswa.umur}"),
+                    trailing: Row(
+                      mainAxisSize: MainAxisSize.min,
+                      children: [
+                        IconButton(
+                          icon: Icon(Icons.edit),
+                          onPressed: () async {
+                            final result = await Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => EditSiswaScreen(siswa: siswa),
+                              ),
+                            );
+
+                            if (result == true) {
+                              muatData();
+                            }
+                          },
+                          padding: EdgeInsets.zero,
+                          constraints: BoxConstraints(),
+                        ),
+                        IconButton(
+                          icon: Icon(Icons.delete),
+                          onPressed: () async {
+                            await DBHelper.deleteSiswa(siswa.id!);
+                            await muatData();
+                          },
+                          padding: EdgeInsets.zero,
+                          constraints: BoxConstraints(),
+                        ),
+                      ],
+                    ),
                   );
                 },
               ),
