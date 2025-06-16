@@ -30,7 +30,7 @@ class OlahragaModel {
       'jenisOlahraga': jenisOlahraga,
       'durasiKegiatan': durasiKegiatan,
       'frekuensiLatihan': frekuensiLatihan,
-      'prestasi': prestasi,
+      'prestasi': prestasi ?? '',
     };
   }
 

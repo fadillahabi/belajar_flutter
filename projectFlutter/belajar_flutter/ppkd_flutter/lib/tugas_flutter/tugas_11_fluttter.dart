@@ -391,7 +391,12 @@ class _TugasSebelasFlutterState extends State<TugasSebelasFlutter> {
                                                 ),
                                           ),
                                         );
-                                        if (result == true) ambilData();
+                                        if (result == true) {
+                                          debugPrint(
+                                            "Berhasil kembali dari edit dan akan memuat ulang data...",
+                                          );
+                                          ambilData();
+                                        }
                                       },
                                     ),
                                     IconButton(

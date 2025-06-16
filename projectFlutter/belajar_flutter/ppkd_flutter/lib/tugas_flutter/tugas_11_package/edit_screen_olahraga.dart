@@ -1,13 +1,12 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
-
 import 'package:ppkd_flutter/tugas_flutter/tugas_11_package/database/db_olahraga.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_11_package/model/olahraga_model.dart';
 
 class EditOlahragaScreen extends StatefulWidget {
   // const EditSiswaScreen({super.key});
   final OlahragaModel peserta;
-  const EditOlahragaScreen({required this.peserta});
+  const EditOlahragaScreen({super.key, required this.peserta});
 
   @override
   State<EditOlahragaScreen> createState() => _EditOlahragaScreenState();
@@ -51,7 +50,10 @@ class _EditOlahragaScreenState extends State<EditOlahragaScreen> {
       jenisOlahraga: jenisOlahragaController.text,
       durasiKegiatan: durasiKegiatanController.text,
       frekuensiLatihan: frekuensiLatihanController.text,
-      prestasi: prestasiController.text,
+      prestasi:
+          prestasiController.text.isNotEmpty
+              ? prestasiController.text
+              : 'Tidak ada',
     );
     await DbOlahraga.updateOlahraga(updated);
     Navigator.pop(context, true);
