@@ -1,15 +1,17 @@
-import 'package:flutter/material.dart';
+import 'dart:convert';
 
-class MeetDuaPuluhDua extends StatefulWidget {
-  const MeetDuaPuluhDua({super.key});
+import 'package:http/http.dart' as http;
 
-  @override
-  State<MeetDuaPuluhDua> createState() => _MeetDuaPuluhDuaState();
-}
+import '../models/user_model.dart';
 
-class _MeetDuaPuluhDuaState extends State<MeetDuaPuluhDua> {
-  @override
-  Widget build(BuildContext context) {
-    return const Placeholder();
+Future<List<Users>> getUsers() async {
+  final response = await http.get(
+    Uri.parse('https://reqres.in/api/users?page=2'),
+  );
+  if (response.statusCode == 200) {
+    final List<dynamic> userJson = json.decode(response.body)["data"];
+    return userJson.map((json) => Users.fromJson(json)).toList();
+  } else {
+    throw Exception('Failed to load users');
   }
 }

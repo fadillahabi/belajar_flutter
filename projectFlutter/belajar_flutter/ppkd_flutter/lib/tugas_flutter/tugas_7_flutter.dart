@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/helper/preference.dart';
 import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
+import 'package:ppkd_flutter/meet_22/view/user_list_screen.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_10_flutter.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_4_flutter.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_6_flutter.dart';
@@ -13,6 +14,7 @@ import 'package:ppkd_flutter/tugas_flutter/tugas_9_flutter.dart';
 
 class TugasTujuhFlutter extends StatefulWidget {
   const TugasTujuhFlutter({super.key});
+  static const String id = "/tugas_7_flutter";
 
   @override
   State<TugasTujuhFlutter> createState() => _TugasTujuhFlutterState();
@@ -129,6 +131,18 @@ class _TugasTujuhFlutterState extends State<TugasTujuhFlutter> {
                   MaterialPageRoute(
                     builder: (context) => TugasSembilanFlutter(),
                   ),
+                );
+              },
+            ),
+            ListTile(
+              leading: Icon(Icons.get_app_sharp),
+              title: Text("Get API"),
+              // selected: _selectedIndex == 4,
+              selectedTileColor: AppColor.blue12.withOpacity(0.2),
+              onTap: () {
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => UserListScreen()),
                 );
               },
             ),

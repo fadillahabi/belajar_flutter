@@ -1,11 +1,7 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_flutter/meet_16/login_screen_app.dart';
-import 'package:ppkd_flutter/meet_16/register_screen.dart';
-import 'package:ppkd_flutter/open.dart';
-import 'package:ppkd_flutter/study_case/screen_siswa.dart';
-import 'package:ppkd_flutter/tugas_flutter/tugas_11_fluttter.dart';
-import 'package:ppkd_flutter/tugas_flutter/tugas_6_flutter.dart';
-import 'package:ppkd_flutter/tugas_flutter/tugas_7_flutter.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_14_package/view/main_screen.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_14_package/view/open_screen.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_14_package/view/splash_screen.dart';
 // import 'package:ppkd_flutter/meet_1/meet.dart';
 // import 'package:ppkd_flutter/tugas_1_flutter.dart';
 
@@ -22,19 +18,25 @@ class MyApp extends StatelessWidget {
     return MaterialApp(
       initialRoute: "/",
       routes: {
-        "/": (context) => Open(),
-        "/login": (context) => TugasEnamFlutter(),
-        "/tugas_7_flutter": (context) => TugasTujuhFlutter(),
-        LoginScreenApp.id: (context) => LoginScreenApp(),
-        RegisterScreen.id: (context) => RegisterScreen(),
-        SiswaApp.id: (context) => SiswaApp(),
-        TugasSebelasFlutter.id:
-            (context) =>
-                TugasSebelasFlutter(), // "dropdown": (context) => TugasTujuhDropDown(),
+        '/': (context) => SplashScreen(),
+        OpenScreen.id: (context) => OpenScreen(),
+        MainScreen.id: (context) => MainScreen(),
+        // "/": (context) => Open(),
+        // "/login": (context) => TugasEnamFlutter(),
+        // TugasTujuhFlutter.id: (context) => TugasTujuhFlutter(),
+        // LoginScreenApp.id: (context) => LoginScreenApp(),
+        // RegisterScreen.id: (context) => RegisterScreen(),
+        // SiswaApp.id: (context) => SiswaApp(),
+        // TugasSebelasFlutter.id: (context) => TugasSebelasFlutter(),
+        // TugasTujuhFlutter.id: (context) => TugasTujuhFlutter(),
+        // UserListScreen.id:
+        //     (context) =>
+        //         UserListScreen(), // "dropdown": (context) => TugasTujuhDropDown(),
         // "datepciker": (context) => TugasTujuhDatepicker(),
         // "timepicker": (context) => TugasTujuhTimepicker(),
       },
       debugShowCheckedModeBanner: false,
+
       title: 'PPKD',
       theme: ThemeData(
         // This is the theme of your application.
@@ -52,6 +54,7 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
+        scaffoldBackgroundColor: Color(0xffFEF4FC),
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color.fromARGB(255, 37, 71, 18),
         ),

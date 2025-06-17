@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/helper/preference.dart';
-import 'package:ppkd_flutter/tugas_flutter/tugas_11_fluttter.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_7_flutter.dart';
 
 class Open extends StatefulWidget {
   const Open({super.key});
@@ -23,7 +23,7 @@ class _OpenState extends State<Open> {
       // } else {
       Navigator.pushNamedAndRemoveUntil(
         context,
-        TugasSebelasFlutter.id,
+        TugasTujuhFlutter.id,
         (route) => false,
       );
       // }

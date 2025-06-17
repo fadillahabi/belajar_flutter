@@ -4,19 +4,19 @@
 
 import 'dart:convert';
 
-Welcome welcomeFromJson(String str) => Welcome.fromJson(json.decode(str));
+UserData welcomeFromJson(String str) => UserData.fromJson(json.decode(str));
 
-String welcomeToJson(Welcome data) => json.encode(data.toJson());
+String welcomeToJson(UserData data) => json.encode(data.toJson());
 
-class Welcome {
+class UserData {
   int? page;
   int? perPage;
   int? total;
   int? totalPages;
-  List<Datum>? data;
+  List<Users>? data;
   Support? support;
 
-  Welcome({
+  UserData({
     this.page,
     this.perPage,
     this.total,
@@ -25,7 +25,7 @@ class Welcome {
     this.support,
   });
 
-  factory Welcome.fromJson(Map<String, dynamic> json) => Welcome(
+  factory UserData.fromJson(Map<String, dynamic> json) => UserData(
     page: json["page"],
     perPage: json["per_page"],
     total: json["total"],
@@ -33,7 +33,7 @@ class Welcome {
     data:
         json["data"] == null
             ? []
-            : List<Datum>.from(json["data"]!.map((x) => Datum.fromJson(x))),
+            : List<Users>.from(json["data"]!.map((x) => Users.fromJson(x))),
     support: json["support"] == null ? null : Support.fromJson(json["support"]),
   );
 
@@ -48,16 +48,16 @@ class Welcome {
   };
 }
 
-class Datum {
+class Users {
   int? id;
   String? email;
   String? firstName;
   String? lastName;
   String? avatar;
 
-  Datum({this.id, this.email, this.firstName, this.lastName, this.avatar});
+  Users({this.id, this.email, this.firstName, this.lastName, this.avatar});
 
-  factory Datum.fromJson(Map<String, dynamic> json) => Datum(
+  factory Users.fromJson(Map<String, dynamic> json) => Users(
     id: json["id"],
     email: json["email"],
     firstName: json["first_name"],
