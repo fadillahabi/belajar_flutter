@@ -28,7 +28,7 @@ class _OpenScreenState extends State<OpenScreen> {
           Container(color: Colors.black.withOpacity(0.4)),
           Center(
             child: Padding(
-              padding: const EdgeInsets.symmetric(horizontal: 30),
+              padding: EdgeInsets.symmetric(horizontal: 30),
               child: Column(
                 mainAxisAlignment: MainAxisAlignment.end,
                 children: [

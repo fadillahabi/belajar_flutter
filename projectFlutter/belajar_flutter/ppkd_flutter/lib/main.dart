@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_14_package/view/main_screen.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_14_package/view/open_screen.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_14_package/view/splash_screen.dart';
@@ -21,6 +22,7 @@ class MyApp extends StatelessWidget {
         '/': (context) => SplashScreen(),
         OpenScreen.id: (context) => OpenScreen(),
         MainScreen.id: (context) => MainScreen(),
+
         // "/": (context) => Open(),
         // "/login": (context) => TugasEnamFlutter(),
         // TugasTujuhFlutter.id: (context) => TugasTujuhFlutter(),
@@ -54,7 +56,7 @@ class MyApp extends StatelessWidget {
         //
         // This works for code too, not just values: Most code changes can be
         // tested with just a hot reload.
-        scaffoldBackgroundColor: Color(0xffFEF4FC),
+        scaffoldBackgroundColor: AppColor.pinkMain,
         colorScheme: ColorScheme.fromSeed(
           seedColor: const Color.fromARGB(255, 37, 71, 18),
         ),

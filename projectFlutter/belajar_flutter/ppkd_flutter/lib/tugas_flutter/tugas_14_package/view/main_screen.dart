@@ -3,8 +3,11 @@ import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_14_package/api/ghibli_data.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_14_package/models/data_api_model.dart';
 
+import 'detail_screen.dart';
+
 class MainScreen extends StatefulWidget {
   const MainScreen({super.key});
+
   static const String id = "/main_screen";
 
   @override
@@ -12,107 +15,234 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  bool isExpanded = false;
+  List<DataGhibli> _allData = [];
+  List<DataGhibli> _filteredData = [];
+  final TextEditingController _searchController = TextEditingController();
+  bool _isLoading = false;
+
+  void _searchMovies(String query) {
+    final filtered =
+        _allData.where((movie) {
+          final titleLower = movie.title?.toLowerCase() ?? '';
+          return titleLower.contains(query.toLowerCase());
+        }).toList();
+
+    setState(() {
+      _filteredData = filtered;
+    });
+  }
+
+  @override
+  void initState() {
+    super.initState();
+    _fetchInitialData();
+  }
+
+  Future<void> _fetchInitialData() async {
+    setState(() => _isLoading = true);
+    final data = await fetchUsers();
+    data.sort(
+      (a, b) =>
+          int.parse(b.rtScore ?? '0').compareTo(int.parse(a.rtScore ?? '0')),
+    );
+    setState(() {
+      _allData = data;
+      _filteredData = data;
+      _isLoading = false;
+    });
+  }
+
+  Future<void> _refreshData() async {
+    setState(() => _isLoading = true);
+    final data = await fetchUsers();
+    data.sort(
+      (a, b) =>
+          int.parse(b.rtScore ?? '0').compareTo(int.parse(a.rtScore ?? '0')),
+    );
+    setState(() {
+      _allData = data;
+      _filteredData =
+          _searchController.text.isEmpty
+              ? data
+              : data.where((movie) {
+                final titleLower = movie.title?.toLowerCase() ?? '';
+                return titleLower.contains(
+                  _searchController.text.toLowerCase(),
+                );
+              }).toList();
+      _isLoading = false;
+    });
+  }
+
   @override
   Widget build(BuildContext context) {
+    final displayData =
+        isExpanded ? _filteredData : _filteredData.take(5).toList();
+
     return Scaffold(
       appBar: AppBar(
+        automaticallyImplyLeading: false,
         backgroundColor: AppColor.pinkMain,
-        leading: IconButton(onPressed: () {}, icon: const Icon(Icons.search)),
-        title: const Text('Browse Ghibli'),
+        title: Text('Browse Ghibli'),
         centerTitle: true,
-        actions: [IconButton(onPressed: () {}, icon: const Icon(Icons.list))],
+        actions: [
+          IconButton(
+            icon: const Icon(Icons.refresh),
+            tooltip: 'Refresh Data',
+            onPressed: _isLoading ? null : _refreshData,
+          ),
+        ],
       ),
-      body: SingleChildScrollView(
-        child: Padding(
-          padding: const EdgeInsets.all(16.0),
-          child: Column(
-            children: [
-              // const SizedBox(height: 32),
-              Row(
-                children: [
-                  const Text(
-                    "Top Ghibli",
-                    style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
-                  ),
-                  const Spacer(),
-                  Text(
-                    "More",
+      body: Column(
+        children: [
+          Padding(
+            padding: const EdgeInsets.all(16.0),
+            child: TextField(
+              controller: _searchController,
+              decoration: InputDecoration(
+                hintText: 'Search Ghibli movie...',
+                prefixIcon: Icon(Icons.search),
+                border: OutlineInputBorder(
+                  borderRadius: BorderRadius.circular(12),
+                ),
+              ),
+              onChanged: _searchMovies,
+            ),
+          ),
+          Padding(
+            padding: const EdgeInsets.symmetric(horizontal: 16.0),
+            child: Row(
+              children: [
+                const Text(
+                  "Top Ghibli",
+                  style: TextStyle(fontSize: 18, fontWeight: FontWeight.w600),
+                ),
+                const Spacer(),
+                GestureDetector(
+                  onTap: () {
+                    setState(() {
+                      isExpanded = !isExpanded;
+                    });
+                  },
+                  child: Text(
+                    isExpanded ? "Less" : "More",
                     style: TextStyle(
                       fontSize: 16,
                       fontWeight: FontWeight.w500,
                       color: AppColor.gray88,
                     ),
                   ),
-                ],
-              ),
-              const SizedBox(height: 8),
-              FutureBuilder<List<DataGhibli>>(
-                future: fetchUsers(),
-                builder: (context, snapshot) {
-                  if (snapshot.connectionState == ConnectionState.waiting) {
-                    return const Center(child: CircularProgressIndicator());
-                  } else if (snapshot.hasError) {
-                    return Center(child: Text('Error: ${snapshot.error}'));
-                  } else if (!snapshot.hasData || snapshot.data!.isEmpty) {
-                    return const Center(child: Text('No data found.'));
-                  }
-
-                  final dataGhibli = snapshot.data!;
-
-                  return GridView.builder(
-                    physics: const NeverScrollableScrollPhysics(),
-                    shrinkWrap: true,
-                    itemCount: dataGhibli.length,
-                    gridDelegate:
-                        const SliverGridDelegateWithFixedCrossAxisCount(
-                          crossAxisCount: 2,
-                          crossAxisSpacing: 10,
-                          mainAxisSpacing: 10,
-                          childAspectRatio: 2 / 3,
-                        ),
-                    itemBuilder: (context, index) {
-                      final movie = dataGhibli[index];
-                      return Card(
-                        color: Colors.transparent,
-                        elevation: 4,
-                        shape: RoundedRectangleBorder(
-                          borderRadius: BorderRadius.circular(8),
-                        ),
-                        clipBehavior: Clip.antiAlias,
-                        child: Column(
-                          crossAxisAlignment: CrossAxisAlignment.start,
-                          children: [
-                            // Gambar di atas
-                            PhysicalModel(
-                              color: Colors.transparent,
-                              shadowColor: Colors.black.withOpacity(0.3),
-                              elevation: 7,
-                              borderRadius: BorderRadius.circular(8),
-                              child: ClipRRect(
-                                borderRadius: BorderRadius.circular(8),
-                                child: Image.network('${movie.image}'),
-                              ),
-                            ),
-                            Padding(
-                              padding: const EdgeInsets.all(8.0),
-                              child: Text(
-                                "${movie.title}",
-                                style: TextStyle(
-                                  fontSize: 16,
-                                  fontWeight: FontWeight.w600,
-                                ),
-                              ),
-                            ),
-                          ],
-                        ),
-                      );
-                    },
-                  );
-                },
-              ),
-            ],
+                ),
+              ],
+            ),
           ),
-        ),
+          const SizedBox(height: 8),
+          Expanded(
+            child:
+                _isLoading
+                    ? const Center(child: CircularProgressIndicator())
+                    : _filteredData.isEmpty
+                    ? const Center(child: Text('No data found.'))
+                    : ListView.builder(
+                      padding: const EdgeInsets.symmetric(horizontal: 16),
+                      itemCount: displayData.length,
+                      itemBuilder: (context, index) {
+                        final movie = displayData[index];
+                        return GestureDetector(
+                          onTap: () {
+                            Navigator.push(
+                              context,
+                              MaterialPageRoute(
+                                builder: (_) => DetailScreen(movie: movie),
+                              ),
+                            );
+                          },
+                          child: Card(
+                            margin: const EdgeInsets.symmetric(vertical: 8),
+                            color: AppColor.pinkSecunder,
+                            shape: RoundedRectangleBorder(
+                              borderRadius: BorderRadius.circular(12),
+                            ),
+                            elevation: 2,
+                            child: Row(
+                              children: [
+                                ClipRRect(
+                                  borderRadius: BorderRadius.only(
+                                    topLeft: Radius.circular(12),
+                                    bottomLeft: Radius.circular(12),
+                                  ),
+                                  child: Image.network(
+                                    movie.image ?? '',
+                                    height: 120,
+                                    width: 100,
+                                    fit: BoxFit.cover,
+                                    errorBuilder:
+                                        (context, error, stackTrace) =>
+                                            Icon(Icons.broken_image, size: 60),
+                                  ),
+                                ),
+                                Expanded(
+                                  child: Padding(
+                                    padding: const EdgeInsets.all(12.0),
+                                    child: Column(
+                                      crossAxisAlignment:
+                                          CrossAxisAlignment.start,
+                                      children: [
+                                        Text(
+                                          movie.title ?? 'No Title',
+                                          maxLines: 1,
+                                          overflow: TextOverflow.ellipsis,
+                                          style: const TextStyle(
+                                            fontSize: 16,
+                                            fontWeight: FontWeight.bold,
+                                          ),
+                                        ),
+                                        const SizedBox(height: 6),
+                                        Row(
+                                          children: [
+                                            const Text(
+                                              "Score: ",
+                                              style: TextStyle(fontSize: 12),
+                                            ),
+                                            Container(
+                                              padding:
+                                                  const EdgeInsets.symmetric(
+                                                    horizontal: 6,
+                                                    vertical: 2,
+                                                  ),
+                                              decoration: BoxDecoration(
+                                                color: Color(0xffE78989),
+                                                borderRadius:
+                                                    BorderRadius.circular(8),
+                                              ),
+                                              child: Text(
+                                                movie.rtScore ?? '-',
+                                                style: TextStyle(
+                                                  fontSize: 12,
+                                                  fontWeight: FontWeight.bold,
+                                                ),
+                                              ),
+                                            ),
+                                          ],
+                                        ),
+                                        SizedBox(height: 6),
+                                        Text(
+                                          "Time: ${movie.runningTime ?? '-'} min",
+                                          style: TextStyle(fontSize: 12),
+                                        ),
+                                      ],
+                                    ),
+                                  ),
+                                ),
+                              ],
+                            ),
+                          ),
+                        );
+                      },
+                    ),
+          ),
+        ],
       ),
     );
   }

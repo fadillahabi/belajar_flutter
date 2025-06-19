@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_flutter/tugas_flutter/tugas_2_flutter.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_2_package/tugas_2_flutter.dart';
 
 class TugasEmpatFlutter extends StatelessWidget {
   const TugasEmpatFlutter({super.key});

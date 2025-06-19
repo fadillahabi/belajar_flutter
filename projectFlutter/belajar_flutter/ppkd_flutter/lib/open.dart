@@ -1,6 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/helper/preference.dart';
-import 'package:ppkd_flutter/tugas_flutter/tugas_7_flutter.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_7_package/tugas_7_flutter.dart';
 
 class Open extends StatefulWidget {
   const Open({super.key});

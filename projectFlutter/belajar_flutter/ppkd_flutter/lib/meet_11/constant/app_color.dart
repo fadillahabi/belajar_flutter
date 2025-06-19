@@ -10,4 +10,5 @@ class AppColor {
   static const Color army3 = Color(0xff9EBC8A);
   static const Color blue12 = Color(0xff00224F);
   static const Color pinkMain = Color(0xffFEF4FC);
+  static const Color pinkSecunder = Color(0xffFDDDDE);
 }
