@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_flutter/tugas_flutter/tugas_14_package/view/main_screen.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_15_package/login_screen.dart';
 
 class OpenScreen extends StatefulWidget {
   const OpenScreen({super.key});
@@ -68,7 +68,9 @@ class _OpenScreenState extends State<OpenScreen> {
                     onPressed: () {
                       Navigator.push(
                         context,
-                        MaterialPageRoute(builder: (context) => MainScreen()),
+                        MaterialPageRoute(
+                          builder: (context) => LoginScreenGhibli(),
+                        ),
                       );
                     },
                     style: ElevatedButton.styleFrom(
