@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
-import 'package:ppkd_flutter/tugas_flutter/tugas_15_package/login_screen.dart';
+import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_15_package/view/login_screen.dart';
 
 class OpenScreen extends StatefulWidget {
   const OpenScreen({super.key});
@@ -57,13 +58,13 @@ class _OpenScreenState extends State<OpenScreen> {
                     ),
                   ),
 
-                  const SizedBox(height: 5),
-                  const Text(
-                    "The best platform to watching\nstudio ghibli online",
+                  SizedBox(height: 5),
+                  Text(
+                    "The best platform to information of\nstudio ghibli online",
                     textAlign: TextAlign.center,
                     style: TextStyle(fontSize: 14, color: Colors.white70),
                   ),
-                  const SizedBox(height: 30),
+                  SizedBox(height: 30),
                   ElevatedButton(
                     onPressed: () {
                       Navigator.push(
@@ -74,21 +75,16 @@ class _OpenScreenState extends State<OpenScreen> {
                       );
                     },
                     style: ElevatedButton.styleFrom(
-                      backgroundColor: const Color.fromARGB(
-                        255,
-                        163,
-                        43,
-                        83,
-                      ).withOpacity(0.9),
-                      padding: const EdgeInsets.symmetric(
+                      backgroundColor: AppColor.pinkButton,
+                      padding: EdgeInsets.symmetric(
                         horizontal: 40,
                         vertical: 12,
                       ),
                       shape: RoundedRectangleBorder(
-                        borderRadius: BorderRadius.circular(8),
+                        borderRadius: BorderRadius.circular(24),
                       ),
                     ),
-                    child: const Text(
+                    child: Text(
                       "Get Started",
                       style: TextStyle(fontSize: 16, color: Colors.white),
                     ),

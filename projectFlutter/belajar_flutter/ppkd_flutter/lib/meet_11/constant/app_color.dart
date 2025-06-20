@@ -11,4 +11,5 @@ class AppColor {
   static const Color blue12 = Color(0xff00224F);
   static const Color pinkMain = Color(0xffFEF4FC);
   static const Color pinkSecunder = Color(0xffFDDDDE);
+  static const Color pinkButton = Color(0xFFE78989);
 }

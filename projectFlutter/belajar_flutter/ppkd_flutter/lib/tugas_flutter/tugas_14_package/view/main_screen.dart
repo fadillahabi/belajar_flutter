@@ -2,6 +2,8 @@ import 'package:flutter/material.dart';
 import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_14_package/api/ghibli_data.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_14_package/models/data_api_model.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_15_package/view/login_screen.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_15_package/view/profile_screen.dart';
 
 import 'detail_screen.dart';
 
@@ -15,11 +17,20 @@ class MainScreen extends StatefulWidget {
 }
 
 class _MainScreenState extends State<MainScreen> {
+  int _selectedIndex = 0;
   bool isExpanded = false;
   List<DataGhibli> _allData = [];
   List<DataGhibli> _filteredData = [];
   final TextEditingController _searchController = TextEditingController();
   bool _isLoading = false;
+
+  void _setScreen(Widget screen, int index) {
+    setState(() {
+      _selectedIndex = index;
+    });
+    // Navigasi ke screen baru jika diperlukan
+    // Navigator.pushReplacement(context, MaterialPageRoute(builder: (_) => screen));
+  }
 
   void _searchMovies(String query) {
     final filtered =
@@ -82,7 +93,7 @@ class _MainScreenState extends State<MainScreen> {
 
     return Scaffold(
       appBar: AppBar(
-        automaticallyImplyLeading: false,
+        // automaticallyImplyLeading: false,
         backgroundColor: AppColor.pinkMain,
         title: Text('Browse Ghibli'),
         centerTitle: true,
@@ -93,6 +104,63 @@ class _MainScreenState extends State<MainScreen> {
             onPressed: _isLoading ? null : _refreshData,
           ),
         ],
+      ),
+      drawer: Drawer(
+        child: ListView(
+          padding: EdgeInsets.zero,
+          children: <Widget>[
+            SizedBox(
+              height: 230,
+              child: DrawerHeader(
+                decoration: BoxDecoration(color: Color(0xffC65D7B)),
+                child: Column(
+                  crossAxisAlignment: CrossAxisAlignment.start,
+                  children: [
+                    Padding(
+                      padding: EdgeInsets.all(8.0),
+                      child: CircleAvatar(
+                        radius: 50,
+                        backgroundColor:
+                            Colors
+                                .grey[300], // opsional, untuk latar belakang ikon
+                        child: Icon(
+                          Icons.person,
+                          size: 50,
+                          color:
+                              Colors.white, // atau warna lain sesuai kebutuhan
+                        ),
+                      ),
+                    ),
+                    Text(
+                      "Fadillah Abi Prayogo",
+                      style: TextStyle(color: Colors.white, fontSize: 18),
+                    ),
+                    Text(
+                      "Navigation Menu Input",
+                      style: TextStyle(
+                        color: Colors.white,
+                        fontSize: 16,
+                        fontStyle: FontStyle.italic,
+                      ),
+                    ),
+                  ],
+                ),
+              ),
+            ),
+            ListTile(
+              leading: Icon(Icons.home),
+              title: Text("Profile Menu"),
+              selected: _selectedIndex == 0,
+              onTap: () => _setScreen(ProfileScreenGhibli(), 0),
+            ),
+            ListTile(
+              leading: Icon(Icons.exit_to_app),
+              title: Text("Log Out"),
+              selected: _selectedIndex == 0,
+              onTap: () => _setScreen(LoginScreenGhibli(), 1),
+            ),
+          ],
+        ),
       ),
       body: Column(
         children: [

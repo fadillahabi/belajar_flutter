@@ -3,6 +3,8 @@ import 'package:ppkd_flutter/meet_11/constant/app_color.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_14_package/view/main_screen.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_14_package/view/open_screen.dart';
 import 'package:ppkd_flutter/tugas_flutter/tugas_14_package/view/splash_screen.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_15_package/view/login_screen.dart';
+import 'package:ppkd_flutter/tugas_flutter/tugas_15_package/view/register_screen.dart';
 // import 'package:ppkd_flutter/meet_1/meet.dart';
 // import 'package:ppkd_flutter/tugas_1_flutter.dart';
 
@@ -22,6 +24,8 @@ class MyApp extends StatelessWidget {
         '/': (context) => SplashScreen(),
         OpenScreen.id: (context) => OpenScreen(),
         MainScreen.id: (context) => MainScreen(),
+        LoginScreenGhibli.id: (context) => LoginScreenGhibli(),
+        RegisterScreenGhibli.id: (context) => RegisterScreenGhibli(),
 
         // "/": (context) => Open(),
         // "/login": (context) => TugasEnamFlutter(),
